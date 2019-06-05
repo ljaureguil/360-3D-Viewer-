@@ -28,11 +28,19 @@
       a {
         color: #ffffff;
       }
-
+#ta{
+  width:100%;
+  height:5%;
+  background:red;
+      }
+      
     </style>
   </head>
 
   <body>
+    <textarea id="ta" placeholder="Write something here"></textarea>
+      <button onclick="settext()">Set Text</button><br>
+  
     <button onclick="takeScreenshot()">take picture</button>
     <script src=""></script>
     <script src=""></script>
@@ -51,7 +59,7 @@
    
    
        */
-
+eta=document.getElementById("ta");
       st1()
 
       function st1() {
@@ -239,6 +247,19 @@
         //     app.ShowPopup(xhttp.responseText)
         return xhttp.responseText;
       }
+function settext(){
+       ljl.Texto(eta.value, 'https://threejs.org/examples/fonts/helvetiker_regular.typeface.json',
+
+          chromeMaterial,
+         parameters,
+          function(ob) {
+            txttexist = true;
+            txtt = ob;
+            scene.add(ob);
+            animate()
+          });
+}
+
 
     </script>
 
