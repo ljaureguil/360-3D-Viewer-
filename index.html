@@ -30,7 +30,7 @@
             width: 100%;
             height: 5%;
             background: #800000;
-            color: white;
+color:white;
         }
     </style>
 </head>
@@ -79,11 +79,17 @@
             loadscript("https://raw.githubusercontent.com/ljaureguil/My-Library/master/MyLib.js", st3);
             //https://raw.githubusercontent.com/ljaureguil/My-Library/master/MyLib.js
         }
-
-        function st3() { //alert("seems to be ok... states3");
-            new loadscript("https://cdn.rawgit.com/mrdoob/three.js/master/examples/js/controls/TrackballControls.js", aa);
+       function st3() { //alert("seems to be ok... states3");
+            new loadscript("https://cdn.rawgit.com/mrdoob/three.js/master/examples/js/controls/TrackballControls.js", st4);
 
         }
+
+
+        function st3() { //alert("seems to be ok... states3");
+            new loadscript("https://cdn.rawgit.com/mrdoob/three.js/master/examples/js/controls/DeviceOrientationControls.js", aa);
+
+        }
+
 
         function loadscript(url, callback) {
 
@@ -138,7 +144,10 @@
             material = new THREE.MeshBasicMaterial({
                 envMap: cubeCamera1.renderTarget
             });
-            controls = new THREE.TrackballControls(camera, renderer.domElement);
+//            controls = new THREE.TrackballControls(camera, renderer.domElement);
+
+controls = new THREE.DeviceOrientationControls( camera );
+
             var directionalLight = new THREE.DirectionalLight(0xffffff, .9, 1000);
             directionalLight.position.y = 400;
             directionalLight.castShadow = true;
@@ -147,14 +156,14 @@
             scene.add(light);
             chromeMaterial = ljl.chromeMaterial(cubeCamera1, 0x00ff60);
 
-            parameters = {
+             parameters = {
 
                 size: 54,
                 height: 30,
                 curveSegments: 12,
                 bevelEnabled: true,
                 bevelThickness: 5,
-                bevelSize: 5,
+                bevelSize:5,
                 bevelSegments: 15
             }
 
@@ -165,7 +174,7 @@
                 function(ob) {
                     txttexist = true;
                     txtt = ob;
-                    //  scene.add(txtt);
+                  //  scene.add(txtt);
                     animate()
                 });
         }
@@ -253,11 +262,11 @@
                 chromeMaterial,
                 parameters,
                 function(ob) {
-                    scene.remove(txtt);
-                    txttexist = true; //alert(txtt.geometry);
+scene.remove(txtt);
+                    txttexist = true;//alert(txtt.geometry);
                     txtt = ob;
 
-                    scene.add(ob);
+                      scene.add(ob);
                     animate()
                 });
         }
